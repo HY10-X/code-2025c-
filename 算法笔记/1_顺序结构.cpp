@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <math.h>
 using namespace std;
 
 // desc:不满两位数的日期补足0
@@ -113,12 +114,22 @@ int main()
          << fullwithzero(MI) << endl
          << fullwithzero(SS);
         */
+    /***************************getchar()************************/
+    /*getchar()读取多余换行符
     int n;
     char c;
     cin>>n>>c;
-    
+    //或者使用scanf()但是需要getchar()读取多余的回车
     cout<<n+1<<endl<<c;
-    
-    
+    */
+    /***************************函数***********************
+   double d;
+   cin>>d;
+   //floor向上取整,ceil()
+    cout<<fixed<<setprecision(2)<<fabs(d)<<" "<<fixed<<setprecision(0)<<floor(d)<<" "<<fixed<<setprecision(0)<<ceil(d)<<" "<<fixed<<setprecision(0)<<d<<" "<<fixed<<setprecision(2)<<pow(d,5);
+    */
+    double d;
+    cin >> d;
+    cout <<fixed<<setprecision(2)<< sqrt(d) <<" "<<fixed<<setprecision(2)<<log(d);
     return 0;
 }
