@@ -2,19 +2,20 @@
 using namespace std;
 int main()
 {
-    int n, u, d, sum,count;
-    sum=0;
-    count=0;
+    int n, u, d, sum, count;
+    sum = 0;
+    count = 0;
     cin >> n >> u >> d;
     do
     {
-        if(sum+5>=d){
+        if (sum + u >= n)
+        {
             count++;
             break;
         }
-        sum=sum+u-d;
+        sum = sum + u - d;
         count++;
     } while (sum < n);
-    cout<<count<<sum;
+    cout << count;
     return 0;
 }
