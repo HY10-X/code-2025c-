@@ -20,17 +20,32 @@ int main()
     double res1 = A * asin(sqrt(B) / 2);
     double res2 = C*asin(sqrt(D)/2);
     double res=res1-res2;
-    if (res>cmpflo)
+    if (res>cmpflo&&res>0)
     {
         
         cout<<"1";
         /* code */
     }
-    else if(res==cmpflo){
+    else if(res<cmpflo&&res>0){
         cout<<"0";
     }
     else{
-        cout<<"2";
+        if (res<0)
+        {
+            res=abs(res);
+            if (res>cmpflo)
+            {
+                cout<<"2";
+            }
+            else{
+                cout<<"0";
+            }
+            
+        }
+        else{
+            cout<<"0";
+        }
+        
     }
     
     return 0;
