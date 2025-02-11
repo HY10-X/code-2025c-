@@ -2,7 +2,7 @@
 #include <algorithm>
 #include <string.h>
 const int maxln = 50;
-int n, k, i, j,maxmin;
+int n, k, i, j,maxmin,temp;
 int a[maxln];
 
 using namespace std;
@@ -10,19 +10,19 @@ void insertarr()
 {
     for (int i = 0; i < n; i++)
     {
-        // 标记已分组的第一个元素,也可以随着循环更新已分组的最大值下标
-        maxmin = i;
-        // 第一个元素不用和自己比较所以+1
-        for (int j = i + 1; j < n; j++)
-        {
-            // 和简单选择排序的区别就是,选择排序分两组直接交换,不断挑最小的放前面
-            // 插入排序将将未排序的最小元素找出来,再找出来和已排序部分的最后一个交换
-            if (a[j] < a[maxmin])
-            {
-                maxmin = j;
-            }
-        }
-        swap(a[i],a[maxmin]);
+        //选择比较的元素拿出来
+        maxmin=a[i];
+        j=i;
+        //j-1>0保证前面还有数据推
+       while (j-1>=0&&a[j-1]>maxmin)
+       {
+        //如果被比较的元素(已排序元素)比拿出来的元素值小,将被比较的元素右移,
+        //j--逐一一直比到b[j-1]不存在即j-1<0
+        a[j]=a[j-1];
+        j--;
+       }
+       //将的拿出来的元素放到计算出的位置j
+        a[j]=maxmin;        
     }
 }
 int main()

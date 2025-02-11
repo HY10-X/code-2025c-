@@ -49,7 +49,6 @@ int main()
             for (int j = 0; j < samecount; j++)
             {
                 cout<<a[i]<<" "<<i+1<<endl;
-                /* code */
             }
             samecount=1;
             
