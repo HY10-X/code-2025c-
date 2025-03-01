@@ -1,61 +1,90 @@
-// 初始化stu数组时,如果在构造函数中处理总分,是不会相加的,因为调用的是默认的构造函数
 #include <iostream>
-#include <algorithm>
-#include <string.h>
+#include <vector>
 using namespace std;
-const int maxln = 1000;
-int a[maxln];
-int cmp1(int x, int y)
+
+/// @brief // 尾插法
+void vpb()
 {
-    return x > y;
-}
-int main()
-{
-    int n;
+    vector<int> v;
+    int n, temp;
     cin >> n;
     for (int i = 0; i < n; i++)
     {
-        /* code */
-        cin >> a[i];
+        cin >> temp;
+        v.push_back(temp);
     }
-    // sort(a, a + n, cmp1);
-    // 插入排序
+    vector<int>::iterator i = v.begin();
+    while (i != v.end())
+    {
+        cout << *i;
+        i++;
+        if (i < v.end())
+        {
+            cout << " ";
+        }
+    }
+}
+/// @brief vector初始化
+void initvecttor()
+{
+    int n, temp, k;
+    cin >> n >> k;
+    vector<int> v(n, k);
     for (int i = 0; i < n; i++)
     {
-        int focus = a[i];
-        int j = i;
-        // 当没有到头并且比较元素的前一位比比较元素大时进行循环,
-
-        while (j - 1 >= 0 && a[j - 1] < focus)
+        cout << v[i];
+        if (i < n - 1)
         {
-            a[j] = a[j - 1];
-            j--;
+            cout << " ";
         }
-        // 找到插入的值j-1,因为循环体已经有了j--
-        a[j] = focus;
     }
+}
 
-    int samecount=1;
+/// @brief vector删除元素与size()容量方法
+void popback()
+{
+    int n, k;
+    cin >> n >> k;
+    vector<int> v(n, 0);
+    vector<int>::iterator i = v.begin();
+    for (int i = 0; i < k; i++)
+    {
+        v.pop_back();
+    }
+    cout << v.size();
+}
+/// @brief 清空容器
+void clearvector()
+{
+    int n;
+    vector<int> v(n, 0);
+    v.clear();
+    cout << v.size();
+}
+// vector的插入和删除
+void indevector()
+{
+    vector<int> v;
+    int n, x, k1, k2;
+    cin >> n;
     for (int i = 0; i < n; i++)
     {
-        if (i+1<n&&a[i]==a[i+1])
-        {
-            
-            samecount++;
-            /* code */
-        } 
-        else{
-
-            for (int j = 0; j < samecount; j++)
-            {
-                cout<<a[i]<<" "<<i+1<<endl;
-                /* code */
-            }
-            samecount=1;
-            
-        }
-        
+        cin >> v[i];
     }
-
-    return 0;
+    cin >> x >> k1 >> k2;
+    // insert第一位应该是位置,迭代器的开始一位
+    v.insert(v.begin() + k1, x);
+    v.erase(v.begin() + k2);
+    for (vector<int>::iterator i = v.begin(); i != v.end(); i++)
+    {
+        cout << *i;
+        if (i != v.end())
+        {
+            cout << " ";
+        }
+    }
+}
+int main()
+{
+    indevector();
 }
