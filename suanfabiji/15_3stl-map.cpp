@@ -81,10 +81,39 @@ void mpa_Clear_Size()
     }
     cout << mp.size();
     mp.clear();
-    cout<<" ";
+    cout << " ";
     cout << mp.size();
+}
+/// @brief map-访问与操作
+void opration()
+{
+    map<string, int> mp;
+    int n, val;
+    string key;
+    cin >> n;
+    for (int i = 0; i < n; i++)
+    {
+        cin >> key;
+        if (mp.find(key) == mp.end())
+        {
+            mp[key] = 1;
+        }
+        else
+        {
+            mp[key]++;
+        }
+    }
+    for (auto it = mp.begin(); it != mp.end(); it++)
+    {
+        if (it != mp.begin())
+        {
+            cout << endl;
+        }
+
+        cout << it->first << " " << it->second;
+    }
 }
 int main()
 {
-    mpa_Clear_Size();
+    opration();
 }
