@@ -87,7 +87,10 @@ public:
         this->name = name_;
         this->price = price_;
     }
-    Fruit() {}
+    Fruit() {
+        this->name="";
+        this->price=0;
+    }
     // 定义重载<操作
     bool operator<(const Fruit &other) const
     {
