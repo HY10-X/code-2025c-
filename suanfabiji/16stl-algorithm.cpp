@@ -71,7 +71,7 @@ void freverse2()
     reverse(s.begin(), s.end());
     cout << s;
 }
-/// @brief algorithm头文件之next_permutation函数
+/// @brief algorithm头文件之next_permutation函数,求所有排列方式(全排列)
 void fnext_permutation()
 {
     vector<int> v;
