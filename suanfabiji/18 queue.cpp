@@ -96,7 +96,7 @@ void optwoqueue()
 {
     queue<int> q1, q2;
     int n, count = 0, temp1, temp2, temp3;
-
+    cin>>n;
     for (int i = 0; i < n; i++)
     {
         cin >> temp1;

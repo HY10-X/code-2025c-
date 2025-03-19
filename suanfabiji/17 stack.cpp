@@ -70,9 +70,40 @@ void stack_pop()
 }
 /// @brief 可能的出栈序列
 void may_pop_stack(){
+    
+}
 
+/// @brief 后缀表达式-无优先级
+void toPostfixExpr1(){
+    string exp;
+    getline(cin,exp);
+    string result="";
+    result=result+exp[0];
+    ///后缀表达式四个符号一组
+    for (int i = 2; i < exp.size(); i=i+4)
+    {
+        //和第一个数添加分隔符
+        result+=" ";
+        //添加第二个数
+        result+=exp[i+2];
+        //添加空格
+        result+=" ";
+        //添加符号
+        result+=exp[i];
+    }
+    cout<<result;
+    
+}
+//!!!!!!待处理
+/// @brief 后缀表达式-有优先级
+void toPostfixExpr2(){
+    string exp;
+    getline(cin,exp);
+    string result="";
+    
+    
 }
 int main()
 {
-    stack_pop();
+    
 }
