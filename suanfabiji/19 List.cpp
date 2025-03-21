@@ -253,24 +253,46 @@ void removedounode()
 
             // 删除当前节点
             nodes[plast].next = nodes[current].next;
+            // 删除节点,下一个节点后的前驱plast应该还是plast,而不能是当前节点
+            plast = plast;
         }
         else
         {
             ptempdata = nodes[current].data;
             tempdata[ptempdata]++;
+            // 记录当前节点的上一个元素
+            plast = current;
         }
-        // 记录当前节点的上一个元素
-        plast = current;
+
         // 将当前节点后移
         current = nodes[current].next;
     }
     current = first;
     while (current != -1)
     {
+        if (current != first)
+        {
+            cout << endl;
+        }
         /// 循环输出
-        cout << current << " " << nodes[current].data << " " << nodes[current].next << endl;
+        cout << current << " " << nodes[current].data << " " << nodes[current].next;
         current = nodes[current].next;
     }
+}
+/// @brief 升序链表中位数
+void uplistmid(){
+    int n, first;
+    cin >> n >> first;
+    int current = first, pnext;
+
+    for (int i = 0; i < n; i++)
+    {
+        int id, data, next;
+        cin >> id >> data >> next;
+        nodes[id].data = data;
+        nodes[id].next = next;
+    }
+    
 }
 int main()
 {
