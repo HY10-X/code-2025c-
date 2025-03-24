@@ -1,6 +1,3 @@
-// 8
-// -5 4 -3 9 -1 0 5 -2
-// 4
 #include <bits/stdc++.h>
 using namespace std;
 // 滑动窗口最大值 |滑动窗口| 已更新https://sars2025.blog.csdn.net/article/details/134029422
@@ -29,7 +26,7 @@ int main()
     for (int i = M; i < N; i++)
     {
         // 更新新的窗口和,减去前窗口的第一个元素并加上最新的元素
-        max_sum = max_sum + arr[i] - arr[i - M];
+        windows_sum = windows_sum + arr[i] - arr[i - M];
         max_sum = max(max_sum, windows_sum);
     }
     cout << max_sum << endl;
